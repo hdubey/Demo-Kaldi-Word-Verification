@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# vim: fdm=syntax
+# vim: fdm=marker
 # Path and settings
 #***************************************************************************\
 # Copyright 2011-2014, Yu-chen Kao

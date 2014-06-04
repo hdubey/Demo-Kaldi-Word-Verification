@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# vim: fdm=syntax
+# vim: fdm=marker
 # Extract training feature
 #***************************************************************************\
 # Copyright 2011-2014, Yu-chen Kao
