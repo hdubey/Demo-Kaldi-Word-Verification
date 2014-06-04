@@ -14,6 +14,13 @@ Install
  2. copy local.zsh.template to local.zsh, and point variables in local.zsh to the actual path in your environment.
  3. Run 10.prepare/download\_lexicon.zsh to get the CMU dictionary.
 
+Notes
+-----
+
+### Regarding model training
+
+ * The training of acoustic model used by this project involving Aurora-4 corpus and WSJ0 corpus, which is quite expensive if you just want to try it out. In this repository, there is already a trained model under model/, so you don't have to actually run the training script if you don't own the corpora.
+
 Caveats and Known Bugs
 -----
  * We directly use the Makefile from Kaldi. If there are bugs, things in this project will also be affected.
