@@ -1,0 +1,41 @@
+not-shared not-split SIL
+not-shared not-split NSN
+shared split AA0 AA1 AA2
+shared split AE0 AE1 AE2
+shared split AH0 AH1 AH2
+shared split AO0 AO1 AO2
+shared split AW0 AW1 AW2
+shared split AY0 AY1 AY2
+shared split B 
+shared split CH 
+shared split D 
+shared split DH 
+shared split EH0 EH1 EH2
+shared split ER0 ER1 ER2
+shared split EY0 EY1 EY2
+shared split F 
+shared split G 
+shared split HH 
+shared split IH0 IH1 IH2
+shared split IY0 IY1 IY2
+shared split JH 
+shared split K 
+shared split L 
+shared split M 
+shared split N 
+shared split NG 
+shared split OW0 OW1 OW2
+shared split OY0 OY1 OY2
+shared split P 
+shared split R 
+shared split S 
+shared split SH 
+shared split T 
+shared split TH 
+shared split UH0 UH1 UH2
+shared split UW0 UW1 UW2
+shared split V 
+shared split W 
+shared split Y 
+shared split Z 
+shared split ZH 
