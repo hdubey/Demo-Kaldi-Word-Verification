@@ -1,0 +1,37 @@
+# Executables and their intermidiate files
+bin/
+*.exe
+*.stackdump
+*.ii
+*.s
+*.o
+*.oo
+*.a
+*.la
+*.dll
+*.gch
+*.pyc
+*.pyo
+*.pyx
+*.dSYM
+
+# Log files and temporaries
+log/
+tmp/
+tags
+*.bak
+*.swp
+*.log
+*.tmp
+*.ark
+*~
+
+# Local settings
+local.zsh
+local.mk
+
+# Results that doesn't need to track
+model/lexicon
+wer/
+tmp/
+log/
