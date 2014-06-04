@@ -27,10 +27,14 @@ function download_lexicon {
   rm -f tmp/cmudict_tmp
   wget https://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict.0.7a -O tmp/cmudict_tmp
 
-  # Keep only first prounciation of each word
-  ( grep -v '^;;;' tmp/cmudict_tmp | \
-    grep -v '([12345])' | sed 's/\s\+/ /g'; \
-    cat ../config/extra_dict; echo '<SIL> SIL'; echo '<UNK> NSN') > ../model/lexicon
+  # Keep only first prounciation of each word, and remap un-accented words
+  ( grep -v '^;;;' tmp/cmudict_tmp \
+    | grep -v '([12345])' \
+    | sed 's/\s\+/ /g' \
+    | sed 's/\<\(AA\|AE\|AH\|AO\|AW\|AY\|EH\|ER\|EY\|IH\|IY\|OW\|OY\|UH\|UW\)\>/&0/g' \
+    ; cat ../config/extra_dict \
+    ; echo '<SIL> SIL' \
+    ; echo '<UNK> NSN') > ../model/lexicon
 
   # Verify
   if [[ $(cat ../model/lexicon | wc -l) -le 10 ]]; then
