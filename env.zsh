@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# vim: fdm=syntax
+# vim: fdm=marker
 # Path and settings
 #***************************************************************************\
 # Copyright 2011-2014, Yu-chen Kao
@@ -35,8 +35,8 @@ if [[ x${DEMO_ROOT:-unset} == xunset ]]; then
   source "$DEMO_ROOT/local.zsh" || exit 1
 
   PATH="$KALDI_ROOT/src/bin:$KALDI_ROOT/src/fstbin/:$KALDI_ROOT/src/gmmbin/:$KALDI_ROOT/src/featbin/:$KALDI_ROOT/src/lm/:$KALDI_ROOT/src/sgmmbin/:$KALDI_ROOT/src/sgmm2bin/:$KALDI_ROOT/src/fgmmbin/:$KALDI_ROOT/src/latbin/:$KALDI_ROOT/src/kwsbin:$PATH"
-  PATH="$KALDI_ROOT/egs/wsj/s5/utils:$KALDI_ROOT/tools/openfst-1.3.2/bin:$PATH"
-  PATH="$SOURCEDIR/utils:$PATH"
+  PATH="$KALDI_ROOT/egs/wsj/s5/utils:$KALDI_ROOT/tools/openfst/bin:$PATH"
+  PATH="$DEMO_ROOT/utils:$PATH"
 
   # These are not designed to be modified, don't touch them!
   # Basically the default parallel settings

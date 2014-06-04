@@ -32,6 +32,7 @@ local.mk
 
 # Results that doesn't need to track
 model/lexicon
+feat/
 wer/
 tmp/
 log/
