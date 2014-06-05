@@ -22,7 +22,7 @@ function record_data {
   mkdir -p tmp log
 
   sox -V1 -d -c 1 -r 16000 tmp/talk.wav trim 0 00:03 loudness 9
-  sox tmp/talk.wav log/$1.wav noisered tmp/noise.prof 0.25 loudness 10 vad -T 0.2 dither
+  sox tmp/talk.wav log/$1.wav noisered tmp/noise.prof 0.25 loudness 10 vad -T 0.2 reverse vad -T 0.2 reverse dither
 
   echo Wavefile saved as log/$1.wav
 }
