@@ -29,6 +29,7 @@ function batch_verification {
 
   for thisset in $(cat tmp/list_batch_verification); do
 
+    ./10_gen_graph.zsh $thisset 2>> $DEMO_LOG
     for (( i = 0; i <= 3; i++ )); do
       local thisfile=data/${thisset}_$i.wav
       if [[ ! -f $thisfile ]]; then

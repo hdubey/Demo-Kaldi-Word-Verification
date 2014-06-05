@@ -26,12 +26,6 @@ function get_ratio {
   local wordname=$1
   local filename=$2
 
-  if [[ ! -f tmp/HCLG_filler.tar.gz ]]; then
-    ./05_gen_filler.zsh 2>> $DEMO_LOG
-  fi
-
-  ./10_gen_graph.zsh $wordname 2>> $DEMO_LOG
-
   echo utt $filename > tmp/testwav.scp
 
   # Feature Extraction
