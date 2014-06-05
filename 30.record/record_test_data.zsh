@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # vim: fdm=marker
-# Store noise profile
+# Record actual wave data and denoise
 #***************************************************************************\
 # Copyright 2011-2014, Yu-chen Kao
 #
