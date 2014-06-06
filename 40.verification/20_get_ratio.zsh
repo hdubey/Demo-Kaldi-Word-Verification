@@ -23,8 +23,7 @@ function get_ratio {
   local DEMO_LOG=log/get_ratio.log
   local ascale=0.15
   local beam=40
-  local wordname=$1
-  local filename=$2
+  local filename=$1
 
   echo utt $filename > tmp/testwav.scp
 
