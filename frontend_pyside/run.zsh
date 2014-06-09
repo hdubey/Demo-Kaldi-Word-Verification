@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # vim: fdm=marker
-# Local settings
+# Run PySide GUI runner
 #***************************************************************************\
 # Copyright 2011-2014, Yu-chen Kao
 #
@@ -18,12 +18,17 @@
 # limitations under the License.
 #***************************************************************************/
 
-typeset -rx KALDI_ROOT=/opt/local/src/kaldi-trunk
-typeset -rx PYTHON_EXECUTABLE=python3
+function run_gui {
+  local gui_id=$1
 
-# Parallel numbers
-typeset -rx DEMO_NPARV=5
+  if [[ $(uname -s) == CYGWIN* ]]; then
+    $PYTHON_EXECUTABLE "$(cygpath -m "$SOURCEDIR/gui${gui_id}.py")"
+  else
+    $PYTHON_EXECUTABLE "$SOURCEDIR/gui${gui_id}.py"
+  fi
+}
 
-# You only need to modify these if you want to run training scripts
-typeset -rx CORPUS_AURORA4=/cygdrive/q/Corpus/aurora4
-typeset -rx CORPUS_WSJ0=/cygdrive/q/Corpus/wsj0
+typeset -rx SOURCEDIR="${0:a:h}"
+source "${SOURCEDIR}/../env.zsh"
+cd "${SOURCEDIR}/.."
+run_gui $@
