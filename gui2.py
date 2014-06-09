@@ -77,6 +77,7 @@ class GUIDemo2(QWidget):
 
   @Slot()
   def eval_problem(self):
+    recp = self.recipient.text()
     p = subprocess.Popen(
       ["zsh", "40.verification/20_get_ratio.zsh", "../30.record/log/%s.wav" % (recp)],
       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
