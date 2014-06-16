@@ -5,14 +5,16 @@ A demo on automatic speech word selection and verification using Kaldi, with fro
 
 Dependencies
 -----
- * A basic POSIX environment(cygwin ok), wget, zsh, sed and xz
+ * A basic POSIX environment(cygwin is ok), wget, zsh, sed and xz
  * Kaldi : http://kaldi.sourceforge.net/
+ * Python and PySide (only for PySide GUI front-end)
 
 Install
 -----
  1. Install all dependencies. Note that we need a full source tree of Kaldi, not only its binaries and libraries. You can find an example script of installing Kaldi under cygwin [here](https://github.com/cybeliak/KaldiFace/blob/master/doc/compile_cygwin.sh).
  2. copy local.zsh.template to local.zsh, and point variables in local.zsh to the actual path in your environment.
- 3. Run 10.prepare/download\_lexicon.zsh to get the CMU dictionary.
+ 3. The PySide front-end is not tested under cygwin version of Python 3, you may need to install native Python under Windows (along with PySide, of course) and point the `PYTHON_EXECUTABLE` variable to the actual installation path of native Python.
+ 4. Run 10.prepare/download\_lexicon.zsh to get the CMU dictionary.
 
 Notes
 -----
