@@ -8,16 +8,34 @@ import locale
 # Import the core and GUI elements of Qt
 from PySide.QtCore import *
 from PySide.QtGui import *
+
+# Import for plotting
+import matplotlib
+matplotlib.use('Qt4Agg')
+matplotlib.rcParams['backend.qt4']='PySide'
+import pylab
+from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
  
 # Create the QApplication object
 qt_app = QApplication(sys.argv)
+
+class MatplotlibWidget(FigureCanvas):
+  def __init__(self, parent=None):
+    super(MatplotlibWidget, self).__init__(Figure())
+    self.setParent(parent)
+    self.figure = Figure(figsize=(100,50), facecolor=(1,1,1), edgecolor=(0,0,0))
+    self.canvas = FigureCanvas(self.figure)
+    self.axes = self.figure.add_axes([0,0,1,1])
+    self.axes.axis('off')
+    self.axes.plot([0,3])
  
 class GUIDemo1(QWidget):
   ''' A Qt application that displays the text, "Hello, world!" '''
   def __init__(self):
     # Initialize the object as a QLabel
     QWidget.__init__(self)
-    self.setMinimumSize(QSize(600, 200))
+    self.setMinimumSize(QSize(400, 200))
     self.setWindowTitle('Demo1!')
 
     # Create the QVBoxLayout that lays out the whole form
@@ -46,7 +64,11 @@ class GUIDemo1(QWidget):
     self.form_layout.addRow('<font color=red size=40>分數：</font>', self.greeting)
 
     self.layout.addLayout(self.form_layout)
-    self.layout.addStretch(1)
+
+    # Figure drawing
+    self.canvas = MatplotlibWidget(self)
+    self.canvas.setMaximumSize(400,80)
+    self.layout.addWidget(self.canvas)
 
     self.button_box = QHBoxLayout()
     self.button_box.addStretch(1)
