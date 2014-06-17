@@ -56,6 +56,10 @@ class GUIDemo2(QWidget):
     self.form_layout.addRow('出題區：', self.recipient)
     self.current = QLabel('', self)
     self.form_layout.addRow('目前題目：', self.current)
+    self.likelihood = QLabel('', self)
+    self.form_layout.addRow('Word Log-likelihood：', self.likelihood)
+    self.likelihood_f = QLabel('', self)
+    self.form_layout.addRow('Filler Log-likelihood：', self.likelihood_f)
     self.greeting = QLabel('', self)
     self.form_layout.addRow('<font color=red size=40>分數：</font>', self.greeting)
 
@@ -106,6 +110,8 @@ class GUIDemo2(QWidget):
       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     p.wait()
 
+    self.likelihood.setText("")
+    self.likelihood_f.setText("")
     self.canvas.plot(recp)
     self.canvas.draw()
 
@@ -121,6 +127,8 @@ class GUIDemo2(QWidget):
 
     encoding = locale.getdefaultlocale()[1]
     tmpstr = p.stdout.readline().decode(encoding).strip(' \t\n\r').split(' ')
+    self.likelihood.setText(tmpstr[0])
+    self.likelihood_f.setText(tmpstr[1])
     ratio = round(float(tmpstr[2]) * 200 - 100, 2)
     self.greeting.setText("<font color=red size=48>%s</font>" % (ratio))
     
