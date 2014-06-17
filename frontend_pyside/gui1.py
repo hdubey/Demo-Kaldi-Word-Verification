@@ -16,6 +16,8 @@ matplotlib.rcParams['backend.qt4']='PySide'
 import pylab
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+import numpy as np
+import wave
  
 # Create the QApplication object
 qt_app = QApplication(sys.argv)
@@ -28,7 +30,15 @@ class MatplotlibWidget(FigureCanvas):
     self.canvas = FigureCanvas(self.figure)
     self.axes = self.figure.add_axes([0,0,1,1])
     self.axes.axis('off')
-    self.axes.plot([0,3])
+
+  def plot(self, recp):
+    spf = wave.open('30.record/log/%s.wav' % (recp),'r')
+    signal = spf.readframes(-1)
+    signal = np.fromstring(signal, 'Int16')
+    spf.close()
+    self.axes.cla()
+    self.axes.axis('off')
+    self.axes.plot(signal)
  
 class GUIDemo1(QWidget):
   ''' A Qt application that displays the text, "Hello, world!" '''
@@ -88,8 +98,6 @@ class GUIDemo1(QWidget):
     self.layout.addLayout(self.button_box)
     self.setLayout(self.layout)
 
-    # Set the size, alignment, and title
-    
   @Slot()
   def define_problem(self):
     '''Show the selected problem'''
@@ -110,6 +118,10 @@ class GUIDemo1(QWidget):
       ["zsh", "30.record/record_test_data.zsh", recp],
       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     p.wait()
+
+    self.canvas.plot(recp)
+    self.canvas.draw()
+
     self.greeting.setText("<font color=red size=48>錄製成功，請按「評分」</font>")
 
   @Slot()
