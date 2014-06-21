@@ -7,7 +7,7 @@ Dependencies
 -----
  * A basic POSIX environment(cygwin is ok), wget, zsh, sed and xz
  * Kaldi : http://kaldi.sourceforge.net/
- * Python and PySide (only for PySide GUI front-end)
+ * Python, PySide and Matplotlib (only for PySide GUI front-end)
 
 Install
 -----
