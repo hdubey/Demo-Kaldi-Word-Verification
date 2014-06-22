@@ -160,7 +160,15 @@ class GUIDemo1(QWidget):
         ["zsh", "30.record/get_noise_profile.zsh"],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
       p.wait()
+    # Make filler graph
+    if not os.path.isfile("40.verification/tmp/HCLG_filler.fst.gz"):
+      p = subprocess.Popen(
+        ["zsh", "40.verification/05_gen_filler.zsh"],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+      p.wait()
+      print(p.stderr.read())
 
+    sys.stdout.flush()
     self.show()
     qt_app.exec_()
 
