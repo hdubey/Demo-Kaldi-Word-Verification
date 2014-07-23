@@ -3,6 +3,10 @@ Demo-Kaldi-Word-Verification
 
 A demo on automatic speech word selection and verification using Kaldi, with frontends.
 
+Screenshot
+-----
+![Screenshot of demo](doc/screenshot.png)
+
 Dependencies
 -----
  * A basic POSIX environment(cygwin is ok), wget, zsh, sed and xz
