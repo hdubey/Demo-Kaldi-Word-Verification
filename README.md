@@ -25,7 +25,7 @@ Notes
 
 ### Regarding model training
 
- * The training of acoustic model used by this project involving Aurora-4 corpus and WSJ0 corpus, which is quite expensive if you just want to try it out. In this repository, there is already a trained model under model/, so you don't have to actually run the training script if you don't own the corpora.
+ * The training of acoustic model used by this project involving Aurora-4 corpus and WSJ0 corpus, which are quite expensive if you just want to try it out. In this repository, there is already a trained model under model/, so you don't have to actually run the training script if you don't own the corpora.
 
 Caveats and Known Bugs
 -----
